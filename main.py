@@ -5,7 +5,7 @@ from tkinter import messagebox
 
 window = tkinter.Tk()
 window.title("BMI Calculator")
-window.minsize(width=300, height=200)
+window.minsize(width=380, height=380)
 window.config(padx=30, pady=30)
 
 #image part
@@ -51,25 +51,25 @@ def user_information():
             bmi = (user_weight / (user_height * user_height)) * 10000
 
             if bmi <= 18.5:
-                result_print = "Your BMI is: %3.1f.\tYou are underweight." % (bmi)
+                result_print = "\nYour BMI is: %3.1f.\nYou are underweight." % (bmi)
 
-            elif (bmi > 18.5) and (bmi <= 24.9):
-                result_print = "Your BMI is: %3.1f.\tYou are normal." % (bmi)
+            elif (bmi > 18.5) and (bmi < 25):
+                result_print = "\nYour BMI is: %3.1f.\nYou are normal." % (bmi)
 
-            elif (bmi >= 25) and (bmi <= 30):
-                result_print = "Your BMI is: %3.1f.\tYou are overweight." % (bmi)
+            elif (bmi >= 25) and (bmi < 30):
+                result_print = "\nYour BMI is: %3.1f.\nYou are overweight." % (bmi)
 
-            elif (bmi >= 30) and (bmi <= 34.9):
-                result_print = "Your BMI is: %3.1f.\tYou are Obese (class 1)." % (bmi)
+            elif (bmi >= 30) and (bmi < 35):
+                result_print = "\nYour BMI is: %3.1f.\nYou are Obese (class 1)." % (bmi)
 
-            elif (bmi >= 35) and (bmi <= 39.9):
-                result_print = "Your BMI is: %3.1f.\tYou are Obese (class 2)." % (bmi)
+            elif (bmi >= 35) and (bmi < 40):
+                result_print = "\nYour BMI is: %3.1f.\nYou are Obese (class 2)." % (bmi)
 
             elif bmi >= 40:
-                result_print = "Your BMI is: %3.1f.\tYou are obese (class 3)." % (bmi)
+                result_print = "\nYour BMI is: %3.1f.\n\nYou are obese (class 3)." % (bmi)
 
             else:
-                result_print = "You are not in BMI interval for diagnosis"
+                result_print = "\nYou are not in BMI interval for diagnosis"
 
 
             result = tkinter.Label(text=result_print, font=("Arial", 11, "bold"))
