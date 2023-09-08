@@ -7,6 +7,8 @@ window = tkinter.Tk()
 window.title("BMI Calculator")
 window.minsize(width=380, height=380)
 window.config(padx=30, pady=30)
+window.resizable(width=False, height=False)
+FONT = ("Verdena", 12, "bold")
 
 #image part
 my_image = Image.open("img.png")
@@ -15,21 +17,27 @@ my_new_image = ImageTk.PhotoImage(resize_my_image)
 my_label = tkinter.Label(window, image=my_new_image)
 my_label.pack()
 
+spacer0 = tkinter.Label(text="")
+spacer0.pack()
+
 #weight part
 weight_label = tkinter.Label(text="Enter Your Weight (kg)")
-weight_label.config(font=("Arial", 10, "bold"))
+weight_label.config(font=FONT)
 weight_label.pack()
 
-weight_entry = tkinter.Entry()
+weight_entry = tkinter.Entry(font=FONT)
 weight_entry.config(width=15)
 weight_entry.pack()
 
+spacer1 = tkinter.Label(text="")
+spacer1.pack()
+
 #height part
 height_label = tkinter.Label(text="Enter Your Height (cm)")
-height_label.config(font=("Arial", 10, "bold"))
+height_label.config(font=FONT)
 height_label.pack()
 
-height_entry = tkinter.Entry()
+height_entry = tkinter.Entry(font=FONT)
 height_entry.config(width=15)
 height_entry.pack()
 
@@ -72,16 +80,18 @@ def user_information():
                 result_print = "\nYou are not in BMI interval for diagnosis"
 
 
-            result = tkinter.Label(text=result_print, font=("Arial", 11, "bold"))
-            result.config(padx=10, pady=10)
+            result = tkinter.Label(text=result_print, font=("Verdena", 14, "bold"))
+            result.config(pady=10, padx=10)
             result.pack()
 
     except:
         messagebox.showerror(title="ERROR", message="Enter valid numbers.")
 
 
+spacer2 = tkinter.Label(text="")
+spacer2.pack()
 
-calculate_button = tkinter.Button(text="Calculate", command=user_information)
+calculate_button = tkinter.Button(text="Calculate", command=user_information, font=FONT)
 calculate_button.pack()
 
 window.mainloop()
